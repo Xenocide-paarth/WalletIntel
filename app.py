@@ -250,8 +250,6 @@ if __name__ == "__main__":
                 st.sidebar.success("Admin mode enabled")
             else:
                 st.sidebar.error("Wrong password")
-
-    st.sidebar.write("Loaded ADMIN_PASSWORD? ", bool(Configurations.ADMIN_PASSWORD))
     
     is_admin = st.session_state.get("is_admin", False)
 
