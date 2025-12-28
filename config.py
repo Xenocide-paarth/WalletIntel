@@ -1,3 +1,4 @@
+import streamlit as st
 import plotly.express as px
 
 class Configurations:
@@ -39,5 +40,7 @@ class Configurations:
     "yaxis": {"tickprefix": "₹", "tickformat": ","}
     }
 
-    # --- ADMIN ---
-    ADMIN_PASSWORD = "paarth@99_streamlitApp"
+    try:
+        ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD")
+    except:
+        ValueError("Admin Password couldn't be loaded.")
