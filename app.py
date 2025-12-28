@@ -239,7 +239,19 @@ if __name__ == "__main__":
         "About": Configurations.ABOUT
     }
     )
-        
+
+    # --- ADMIN LOGIN ---
+    if "is_admin" not in st.session_state:
+        pwd = st.sidebar.text_input("Admin password", type="password")
+        if st.sidebar.button("Login as admin"):
+            st.session_state["is_admin"] = (pwd == Configurations.ADMIN_PASSWORD)
+            if st.session_state["is_admin"]:
+                st.sidebar.success("Admin mode enabled")
+            else:
+                st.sidebar.error("Wrong password")
+
+    is_admin = st.session_state.get("is_admin", False)
+
     # --- DATA LOADING ---
     @st.cache_data
     def load_data():
@@ -308,8 +320,10 @@ if __name__ == "__main__":
     side_r1c1, side_r1c2 = st.sidebar.columns(2)
 
     with side_r1c1:
-        st.link_button("✍️ Record", Configurations.responder_link)
-        
+        if is_admin:
+            st.link_button("✍️ Record", Configurations.responder_link)
+        else:
+            st.caption("Login as admin for quick actions.")
 
     # --- DASHBOARD LAYOUT ---
     st.title("⚡ Personal Finance Dashboard")

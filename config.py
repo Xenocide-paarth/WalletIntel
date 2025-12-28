@@ -38,3 +38,6 @@ class Configurations:
     "margin": {"l": 60, "r": 40, "t": 60, "b": 60},
     "yaxis": {"tickprefix": "₹", "tickformat": ","}
     }
+
+    # --- ADMIN ---
+    ADMIN_PASSWORD = "paarth@99_streamlitApp"
