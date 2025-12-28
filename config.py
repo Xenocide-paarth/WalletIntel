@@ -42,7 +42,7 @@ class Configurations:
 
     try:
         ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD")
-        print(ADMIN_PASSWORD)
+
     except Exception as e:
         ADMIN_PASSWORD = ""
         ValueError("Admin Password couldn't be loaded: ", e)

@@ -245,6 +245,8 @@ if __name__ == "__main__":
         pwd = st.sidebar.text_input("Admin password", type="password")
         if st.sidebar.button("Login as admin"):
             st.session_state["is_admin"] = (pwd == Configurations.ADMIN_PASSWORD)
+            st.write("Loaded ADMIN_PASSWORD? ", bool(Configurations.ADMIN_PASSWORD))
+
             if st.session_state["is_admin"]:
                 st.sidebar.success("Admin mode enabled")
             else:
