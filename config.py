@@ -46,3 +46,7 @@ class Configurations:
     except Exception as e:
         ADMIN_PASSWORD = ""
         ValueError("Admin Password couldn't be loaded: ", e)
+    
+    # --- LOGO ---
+    LOGO = "logo.png"
+    LOGO_size = "medium"
