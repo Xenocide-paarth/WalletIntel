@@ -268,7 +268,7 @@ if __name__ == "__main__":
         st.stop
     
     # --- SIDEBAR FILTERS ---
-    st.logo(Configurations.LOGO, size=Configurations.LOGO_size)
+    st.sidebar.image(Configurations.LOGO, use_column_width="auto")
     st.sidebar.header("🔍 Filter Options")
 
     # Date Filter
