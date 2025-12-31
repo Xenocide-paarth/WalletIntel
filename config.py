@@ -48,5 +48,5 @@ class Configurations:
         ValueError("Admin Password couldn't be loaded: ", e)
     
     # --- LOGO ---
-    LOGO = "logo.png"
+    LOGO = "logo_2.png"
     LOGO_size = "large"
