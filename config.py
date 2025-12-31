@@ -49,4 +49,3 @@ class Configurations:
     
     # --- LOGO ---
     LOGO = "logo.png"
-    LOGO_size = "small"

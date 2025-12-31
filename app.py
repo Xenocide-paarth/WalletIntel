@@ -240,7 +240,7 @@ if __name__ == "__main__":
     }
     )
     
-    st.sidebar.image(Configurations.LOGO, use_container_width=True)
+    st.sidebar.image(Configurations.LOGO, width="content")
 
     # --- ADMIN LOGIN ---
     if "is_admin" not in st.session_state:
