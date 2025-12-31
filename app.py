@@ -239,6 +239,8 @@ if __name__ == "__main__":
         "About": Configurations.ABOUT
     }
     )
+    
+    st.sidebar.image(Configurations.LOGO, use_container_width=True)
 
     # --- ADMIN LOGIN ---
     if "is_admin" not in st.session_state:
@@ -268,7 +270,6 @@ if __name__ == "__main__":
         st.stop
     
     # --- SIDEBAR FILTERS ---
-    st.sidebar.image(Configurations.LOGO, use_container_width=True)
     st.sidebar.header("🔍 Filter Options")
 
     # Date Filter
