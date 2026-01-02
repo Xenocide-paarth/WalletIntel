@@ -240,8 +240,6 @@ if __name__ == "__main__":
     }
     )
     
-    st.sidebar.image(Configurations.LOGO, width="content")
-
     # --- ADMIN LOGIN ---
     if "is_admin" not in st.session_state:
         pwd = st.sidebar.text_input("Admin password", type="password")
@@ -339,7 +337,11 @@ if __name__ == "__main__":
 
     balance = filtered_record_totals.get("Income", 0) + filtered_record_totals.get("Expense", 0)
     transfer_InOut = unfiltered_record_totals.get("Transfer-In", 0) + unfiltered_record_totals.get("Transfer-Out", 0)
-    expense_ratio = abs(filtered_record_totals.get("Expense") / filtered_record_totals.get("Income"))
+
+    try:
+        expense_ratio = abs(filtered_record_totals.get("Expense") / filtered_record_totals.get("Income"))
+    except ZeroDivisionError:
+        expense_ratio = 0
 
     delta_metric1 = "In Line" if balance >= 0 else "Alert!"
     delta_metric2 = "In Line" if balance == 0 else "Alert!"
