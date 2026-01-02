@@ -117,12 +117,12 @@ class Finance:
         transfer_expense["Source"] = transfer_expense["Account"]
         transfer_expense["Account"] = temp
 
-        transfer_expense["Nature of Record"] = "Expense"
+        transfer_expense["Nature of Record"] = "Transfer-Out"
 
         # income leg
         transfer_income = transfer_rows.copy()
         transfer_income["Amount"] = transfer_income["Amount"]
-        transfer_income["Nature of Record"] = "Income"
+        transfer_income["Nature of Record"] = "Transfer-In"
 
         split_transfers = pd.concat(
             [transfer_expense, transfer_income], ignore_index=True
