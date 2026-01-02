@@ -147,10 +147,10 @@ class Graph:
         # 1) global running balance per account (no filter yet)
         df = df.sort_values(["Account", "Timestamp"])
         df["Balance"] = df.groupby("Account")["Amount"].cumsum()  # groupwise cumsum [web:148][web:150]
-
+        
         # 2) filter to selected accounts
         df = df.loc[mask]
-
+        
         # 3) sort for nice time-series plotting
         df = df.sort_values("Timestamp")
 
@@ -160,6 +160,7 @@ class Graph:
             y="Balance",
             color="Account",
             line_group="Account",
+            custom_data="Account",
             labels={"Balance": "Balance (₹)", "Timestamp": "Date/Time"},
             color_discrete_sequence=Configurations.VIBRANT_SEQUENCE,  # vibrant palette [web:140]
         )
@@ -171,7 +172,7 @@ class Graph:
             opacity=0.7,
             hovertemplate=(
                 "<b>Date:</b> %{x|%Y-%m-%d}<br>"
-                "<b>Account:</b> %{name}<br>"
+                "<b>Account:</b> %{customdata[0]}<br>"
                 "<b>Balance:</b> ₹%{y:,.2f}<extra></extra>"
             ),
         )
