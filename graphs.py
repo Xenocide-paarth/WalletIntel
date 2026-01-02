@@ -171,7 +171,7 @@ class Graph:
             opacity=0.7,
             hovertemplate=(
                 "<b>Date:</b> %{x|%Y-%m-%d}<br>"
-                "<b>Account:</b> %{legendgroup}<br>"
+                "<b>Account:</b> %{name}<br>"
                 "<b>Balance:</b> ₹%{y:,.2f}<extra></extra>"
             ),
         )
