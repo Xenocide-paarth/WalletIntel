@@ -339,7 +339,7 @@ if __name__ == "__main__":
     transfer_InOut = unfiltered_record_totals.get("Transfer-In", 0) + unfiltered_record_totals.get("Transfer-Out", 0)
 
     try:
-        expense_ratio = abs(filtered_record_totals.get("Expense") / filtered_record_totals.get("Income"))
+        expense_ratio = abs(filtered_record_totals.get("Expense", 0) / filtered_record_totals.get("Income", 0))
     except ZeroDivisionError:
         expense_ratio = 0
 
